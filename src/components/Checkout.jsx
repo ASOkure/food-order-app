@@ -4,6 +4,7 @@ import CartContext from "../store/CartContext";
 import { currencyFormatter } from "../util/formatting";
 import Input from "./UI/Input";
 import UserProgressContext from "../store/UserProgressContext";
+import Button from "./UI/Button";
 export default function Checkout() {
   const cartCtx = useContext(CartContext);
   const userProgressCtx = useContext(UserProgressContext);
@@ -16,14 +17,19 @@ export default function Checkout() {
   function handleClose() {
     userProgressCtx.hideCheckout();
   }
+  function handleSubmit(event) {
+    event.preventDefault();
+    const fd = new FormData(event.target);
+    const custtomerData = Object.fromEntries(fd.entries());
+  }
   return (
-    <Modal open={userProgressCtx.progress === "checkout"}>
-      <form>
+    <Modal open={userProgressCtx.progress === "checkout"} onClose={handleClose}>
+      <form onSubmit={handleSubmit}>
         <h2>Checkout</h2>
         <p>Total Amount: {currencyFormatter.format(cartTotal)}</p>
         <Input label="Full Name" type="text" id="full-name" />
         <Input label="E-Mail Address" type="email" id="email" />
-        <Input lable="Street" type="text" id="Street" />
+        <Input label="Street" type="text" id="Street" />
         <div className="control-row">
           <Input label="Postal Code" type="text" id="postal-code" />
           <Input label="City" type="text" id="city" />

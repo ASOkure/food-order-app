@@ -4,7 +4,7 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import { CartContextProvider } from "./store/CartContext";
 import { UserProgressContextProvider } from "./store/UserProgressContext";
-import Checkout from "./components/Checkout";
+
 function App() {
   return (
     <UserProgressContextProvider>

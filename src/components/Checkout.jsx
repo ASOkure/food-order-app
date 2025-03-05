@@ -24,7 +24,7 @@ export default function Checkout() {
     error,
     sendRequest,
     clearData,
-  } = useHttp("https://ondemandfoodorder.netlify.app//orders", requestConfig);
+  } = useHttp("https://ondemandfoodorder.netlify.app/orders", requestConfig);
 
   const cartTotal = cartCtx.items.reduce(
     (totalPrice, item) => totalPrice + item.quantity * item.price,

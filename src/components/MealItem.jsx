@@ -12,7 +12,7 @@ export default function MealItem({ meal }) {
   return (
     <li className="meal-item">
       <article>
-        <img src={`http://localhost:3000/${meal.image}`} alt={meal.name} />
+        <img src={`https://ondemandfoodorder.netlify.app/${meal.image}`} alt={meal.name} />
         <div>
           <h3>{meal.name}</h3>
           <p className="meal-item-price">
